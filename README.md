@@ -4,30 +4,13 @@ title: About
 permalink: /about/
 ---
 
-## Theme Monos
-> Simple and lightweight theme for Jekyll
+***Carpe Diem，Quam Minimum Credula Postero.***
+这句话我个人挺喜欢的，前半句是在看《死亡诗社》时知道的，这是拉丁语，英文意思是*seize the day*，整句话大意为——抓住今天，而不要过于相信明天。
 
-### Features
-- Responsive.
-- Syntax Highlight
-- Most optimized theme for tech blog.
-- Lightweight with minimum stylesheet.
-- Easy to customize.
-- Offers category menu.
+当然，我自认为大部分时候是没有做到这一步的，更多时间我只是活在自己的世界里。想做的事当然很多，比如自己完全敲出一个blog网站啊，比如自己组装一台游戏主机啊，比如学会弹吉他啊，但我最终只是将时间慢慢消耗在手机上，时光悄悄地、匆匆地在指缝间流走。
 
-### _config.yml
-> Code block will look like this.
-```yml
-highlighter-theme: monokai //you can change your syntax color scheme.
-date_format: "%Y-%M-%D" //and date format.
-```
+![图片](../public/img/NotWasteTime.png "笑")
 
-### Screenshots
-#### Page
-![alt text](/public/img/screenshot-1.png)
-#### Articles
-![alt text](/public/img/screenshot-2.png)
-#### Page - Mobile
-![alt text](/public/img/screenshot-m1.png)
-#### Page - Articles
-![alt text](/public/img/screenshot-m2.png)
+虽然我觉得这样其实也没什么，我是喜欢一动不动家里蹲的，但想做的事总是要慢慢去完成的。
+
+我曾经想着自己写一个博客网站，但疲懒的性子让我迟迟没有动手，买的服务器和域名也快到到期了，如今终于在网上找了教程，直接使用*github仓库*来作为第一个博客网站练手吧，借此机会也记录一些自己的东西。
