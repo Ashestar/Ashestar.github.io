@@ -2,7 +2,7 @@
 layout: post
 title: Github Blog
 date: 2021-03-21 09:00:00 +0800
-category: study,resource
+category: study resource
 ---
 
 # 在Github上创建个人博客
