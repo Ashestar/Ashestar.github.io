@@ -13,7 +13,7 @@ category: resource
 >
 > [jekylljekyll主题博客](http://jekyllthemes.org/)
 >
-> 在浏览器上更新博客：[小书匠markdown编辑器](http://markdown.xiaoshujiang.com/)
+> 在浏览器上更新博客（还未尝试）：[小书匠markdown编辑器](http://markdown.xiaoshujiang.com/)
 
 所找到的另外的网站
 
