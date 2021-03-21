@@ -9,7 +9,7 @@ permalink: /about/
 
 当然，我自认为大部分时候是没有做到这一步的，更多时间我只是活在自己的世界里。想做的事当然很多，比如自己完全敲出一个blog网站啊，比如自己组装一台游戏主机啊，比如学会弹吉他啊，但我最终只是将时间慢慢消耗在手机上，时光悄悄地、匆匆地在指缝间流走。
 
-<div align=center>![图片](../public/img/NotWasteTime.png "笑"){:height="150%" width="150%"}
+<div align=center>![图片](../public/img/NotWasteTime.png "笑")
 
 虽然我觉得这样其实也没什么，我是喜欢一动不动家里蹲的，但想做的事总是要慢慢去完成的。
 
