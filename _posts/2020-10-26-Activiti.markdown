@@ -50,9 +50,11 @@ category: Java
 
 > 流程部署
 > 	1、单个文件部署（bpmn文件，png文件），addClasspathResource("*.bpmn")
-> 	2、将bpmn文件与png文件压缩成zip文件，再通过addZipInputStream()部署
+>
+> ​	2、将bpmn文件与png文件压缩成zip文件，再通过addZipInputStream()部署
 
 >流程实例
+>
 >一个流程定义可以对应多个流程实例
 >启动流程实例 RuntimeService startProcessInstanceByKey("key")
 
