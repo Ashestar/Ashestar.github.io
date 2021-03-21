@@ -2,7 +2,7 @@
 layout: post
 title: 梦—总述
 date: 2021-03-21 19:00:00 +0800
-category: dream
+category: Dream
 ---
 
 # 梦

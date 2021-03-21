@@ -2,7 +2,7 @@
 layout: post
 title: Todo List
 date: 2021-03-21 12:00:00 +0800
-category: todo
+category: Todo
 ---
 
 # 白日做梦
