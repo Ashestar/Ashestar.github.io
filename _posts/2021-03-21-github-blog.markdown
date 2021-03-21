@@ -2,7 +2,7 @@
 layout: post
 title: Github Blog
 date: 2021-03-21 09:00:00 +0800
-category: study resource
+category: resource
 ---
 
 # 在Github上创建个人博客
@@ -20,3 +20,5 @@ category: study resource
 > [三分钟在GitHub上搭建个人博客](https://zhuanlan.zhihu.com/p/28321740)
 >
 > 博客主题（访问很慢）：[html5up主题博客](https://html5up.net/)
+
+> [用GitHub-Pages搭建博客及Jekyll主题设置](https://xienotes.net/2020/04/25/github-pages-and-jekyll.html)
