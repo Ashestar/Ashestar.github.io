@@ -1,9 +1,8 @@
 ---
 layout: post
 title: SpringBoot banner
-date: 2021-05-29 21:00:00 +0800
-category: Little Tricks
-
+date: 2021-06-14 21:00:00 +0800
+category: Tricks
 ---
 
 # SpringBoot banner
@@ -68,13 +67,13 @@ LOG					// 应为在日志中打印图案，控制台也有
 banner文件里可以加上Spring的版本号等：
 
 ```java
-${application.title}										// MANIFEST.MF文件中的应用名称
+${application.title}                    // MANIFEST.MF文件中的应用名称
 
-${application.version}                  //  这个是MANIFEST.MF文件中的版本号  
+${application.version}                  //  这个是MANIFEST.MF文件中的版本号  
 
-${application.formatted-version}        // 这个是上面的的版本号前面加v后上括号  
+${application.formatted-version}        // 这个是上面的的版本号前面加v后上括号  
 
-${spring-boot.version}                  // 这个是springboot的版本号  
+${spring-boot.version}                  // 这个是springboot的版本号  
 
 ${spring-boot.formatted-version}				// 同上
 ```
@@ -82,11 +81,11 @@ ${spring-boot.formatted-version}				// 同上
 也可以对打印的样式作修改，Spring提供了三个枚举类来设定字符集的颜色：
 
 ```java
-AnsiColor 				// 用来设定字符的前景色
+AnsiColor         // 用来设定字符的前景色
 
-AnsiBackground 		// 用来设定字符的背景色
+AnsiBackground    // 用来设定字符的背景色
 
-AnsiStyle 				// 用来控制加粗、斜体、下划线等等。
+AnsiStyle         // 用来控制加粗、斜体、下划线等等。
 ```
 
 示例：
