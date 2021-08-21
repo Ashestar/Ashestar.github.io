@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico">
+  <link rel="mask-icon" href="/images/favicon-32.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"neonatal.gitee.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="前面已经可以开始写博客了，但如果还是对界面不怎么满意，那还可以做些小修改，下面记录一下我在next主题上做的配置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 博客美化">
+<meta property="og:url" content="https://neonatal.gitee.io/2021/08/20/hexo-beautify/index.html">
+<meta property="og:site_name" content="Gone With the Wind">
+<meta property="og:description" content="前面已经可以开始写博客了，但如果还是对界面不怎么满意，那还可以做些小修改，下面记录一下我在next主题上做的配置。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-20T11:33:34.000Z">
+<meta property="article:modified_time" content="2021-08-21T08:07:22.733Z">
+<meta property="article:author" content="谂独">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://neonatal.gitee.io/2021/08/20/hexo-beautify/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo 博客美化 | Gone With the Wind</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Gone With the Wind</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">谂独的部落阁</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">15</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://neonatal.gitee.io/2021/08/20/hexo-beautify/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="谂独">
+      <meta itemprop="description" content="Help me understand the best is yet to come <br/> Take me by the hand before I come undone">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gone With the Wind">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo 博客美化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-20 19:33:34" itemprop="dateCreated datePublished" datetime="2021-08-20T19:33:34+08:00">2021-08-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-21 16:07:22" itemprop="dateModified" datetime="2021-08-21T16:07:22+08:00">2021-08-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>前面已经可以开始写博客了，但如果还是对界面不怎么满意，那还可以做些小修改，下面记录一下我在next主题上做的配置。</p>
+<span id="more"></span>
+
+<h1 id="Next主题风格"><a href="#Next主题风格" class="headerlink" title="Next主题风格"></a>Next主题风格</h1><p>Next中提供了四种主题风格，可以在主题配置文件<code>your_blog/themes/next/_config.yml</code>中进行选择，分别是Muse、Mist、Pisces、Gemini</p>
+<p>我选择的是Mist风格</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>_config.yml</code> 文件中有博客主题的相关配置文件，基本的配置都有写明，不懂的可以设置后看看效果或者搜索</p>
+<h1 id="添加博客自定义图标"><a href="#添加博客自定义图标" class="headerlink" title="添加博客自定义图标"></a>添加博客自定义图标</h1><p>Hexo博客的默认图标是<code>H</code>，支持自定义图标，可在<a target="_blank" rel="noopener" href="https://www.bitbug.net/">bitbug</a>网站选择图片生成，<a target="_blank" rel="noopener" href="https://www.iconfont.cn/plus/user/detail?uid=41718">iconfont</a>下载，在 <code>themes/next/_config.yml</code> 如下地方进行设置：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/16x16.png</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/32x32.png</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/128x128.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo2.svg</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="鼠标点击特效"><a href="#鼠标点击特效" class="headerlink" title="鼠标点击特效"></a>鼠标点击特效</h1><p>在界面中添加点击特效，这里提供两种</p>
+<ol>
+<li>红心特效<ul>
+<li>在 <code>/themes/next/source/js/</code> 下新建文件 <code>clicklove.js</code> ，接着把下面的代码拷贝粘贴到 <code>clicklove.js</code> 文件中：   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">e,t,a</span>)</span>&#123;<span class="function"><span class="keyword">function</span> <span class="title">n</span>(<span class="params"></span>)</span>&#123;c(<span class="string">&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &#x27;&#x27;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;</span>),o(),r()&#125;<span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params"></span>)</span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> e=<span class="number">0</span>;e&lt;d.length;e++)d[e].alpha&lt;=<span class="number">0</span>?(t.body.removeChild(d[e].el),d.splice(e,<span class="number">1</span>)):(d[e].y--,d[e].scale+=<span class="number">.004</span>,d[e].alpha-=<span class="number">.013</span>,d[e].el.style.cssText=<span class="string">&quot;left:&quot;</span>+d[e].x+<span class="string">&quot;px;top:&quot;</span>+d[e].y+<span class="string">&quot;px;opacity:&quot;</span>+d[e].alpha+<span class="string">&quot;;transform:scale(&quot;</span>+d[e].scale+<span class="string">&quot;,&quot;</span>+d[e].scale+<span class="string">&quot;) rotate(45deg);background:&quot;</span>+d[e].color+<span class="string">&quot;;z-index:99999&quot;</span>);requestAnimationFrame(r)&#125;<span class="function"><span class="keyword">function</span> <span class="title">o</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> t=<span class="string">&quot;function&quot;</span>==<span class="keyword">typeof</span> e.onclick&amp;&amp;e.onclick;e.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;t&amp;&amp;t(),i(e)&#125;&#125;<span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;div&quot;</span>);a.className=<span class="string">&quot;heart&quot;</span>,d.push(&#123;<span class="attr">el</span>:a,<span class="attr">x</span>:e.clientX-<span class="number">5</span>,<span class="attr">y</span>:e.clientY-<span class="number">5</span>,<span class="attr">scale</span>:<span class="number">1</span>,<span class="attr">alpha</span>:<span class="number">1</span>,<span class="attr">color</span>:s()&#125;),t.body.appendChild(a)&#125;<span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;style&quot;</span>);a.type=<span class="string">&quot;text/css&quot;</span>;<span class="keyword">try</span>&#123;a.appendChild(t.createTextNode(e))&#125;<span class="keyword">catch</span>(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].appendChild(a)&#125;<span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span><span class="string">&quot;rgb(&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;)&quot;</span>&#125;<span class="keyword">var</span> d=[];e.requestAnimationFrame=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="built_in">setTimeout</span>(e,<span class="number">1e3</span>/<span class="number">60</span>)&#125;&#125;(),n()&#125;(<span class="built_in">window</span>,<span class="built_in">document</span>);</span><br></pre></td></tr></table></figure></li>
+<li>在 <code>themes/next/layout/_layout.swig</code> 文件末尾添加：   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/clicklove.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>烟火特效<ul>
+<li>在 <code>themes/next/source/js/</code> 里面建一个叫 <code>fireworks.js</code> 的文件，复制代码如下：  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;<span class="function"><span class="keyword">function</span> <span class="title">updateCoords</span>(<span class="params">e</span>)</span>&#123;pointerX=(e.clientX||e.touches[<span class="number">0</span>].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[<span class="number">0</span>].clientY-canvasEl.getBoundingClientRect().top&#125;<span class="function"><span class="keyword">function</span> <span class="title">setParticuleDirection</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> t=anime.random(<span class="number">0</span>,<span class="number">360</span>)*<span class="built_in">Math</span>.PI/<span class="number">180</span>,a=anime.random(<span class="number">50</span>,<span class="number">180</span>),n=[-<span class="number">1</span>,<span class="number">1</span>][anime.random(<span class="number">0</span>,<span class="number">1</span>)]*a;<span class="keyword">return</span>&#123;<span class="attr">x</span>:e.x+n*<span class="built_in">Math</span>.cos(t),<span class="attr">y</span>:e.y+n*<span class="built_in">Math</span>.sin(t)&#125;&#125;<span class="function"><span class="keyword">function</span> <span class="title">createParticule</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=colors[anime.random(<span class="number">0</span>,colors.length-<span class="number">1</span>)],a.radius=anime.random(<span class="number">16</span>,<span class="number">32</span>),a.endPos=setParticuleDirection(a),a.draw=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI,!<span class="number">0</span>),ctx.fillStyle=a.color,ctx.fill()&#125;,a&#125;<span class="function"><span class="keyword">function</span> <span class="title">createCircle</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=<span class="string">&quot;#F00&quot;</span>,a.radius=<span class="number">0.1</span>,a.alpha=<span class="number">0.5</span>,a.lineWidth=<span class="number">6</span>,a.draw=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI,!<span class="number">0</span>),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=<span class="number">1</span>&#125;,a&#125;<span class="function"><span class="keyword">function</span> <span class="title">renderParticule</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> t=<span class="number">0</span>;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;<span class="function"><span class="keyword">function</span> <span class="title">animateParticules</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> a=createCircle(e,t),n=[],i=<span class="number">0</span>;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;<span class="attr">targets</span>:n,<span class="attr">x</span>:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">return</span> e.endPos.x&#125;,<span class="attr">y</span>:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">return</span> e.endPos.y&#125;,<span class="attr">radius</span>:<span class="number">0.1</span>,<span class="attr">duration</span>:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),<span class="attr">easing</span>:<span class="string">&quot;easeOutExpo&quot;</span>,<span class="attr">update</span>:renderParticule&#125;).add(&#123;<span class="attr">targets</span>:a,<span class="attr">radius</span>:anime.random(<span class="number">80</span>,<span class="number">160</span>),<span class="attr">lineWidth</span>:<span class="number">0</span>,<span class="attr">alpha</span>:&#123;<span class="attr">value</span>:<span class="number">0</span>,<span class="attr">easing</span>:<span class="string">&quot;linear&quot;</span>,<span class="attr">duration</span>:anime.random(<span class="number">600</span>,<span class="number">800</span>)&#125;,<span class="attr">duration</span>:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),<span class="attr">easing</span>:<span class="string">&quot;easeOutExpo&quot;</span>,<span class="attr">update</span>:renderParticule,<span class="attr">offset</span>:<span class="number">0</span>&#125;)&#125;<span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">var</span> a;<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> n=<span class="built_in">this</span>,i=<span class="built_in">arguments</span>;<span class="built_in">clearTimeout</span>(a),a=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;e.apply(n,i)&#125;,t)&#125;&#125;<span class="keyword">var</span> canvasEl=<span class="built_in">document</span>.querySelector(<span class="string">&quot;.fireworks&quot;</span>);<span class="keyword">if</span>(canvasEl)&#123;<span class="keyword">var</span> ctx=canvasEl.getContext(<span class="string">&quot;2d&quot;</span>),numberOfParticules=<span class="number">30</span>,pointerX=<span class="number">0</span>,pointerY=<span class="number">0</span>,tap=<span class="string">&quot;mousedown&quot;</span>,colors=[<span class="string">&quot;#FF1461&quot;</span>,<span class="string">&quot;#18FF92&quot;</span>,<span class="string">&quot;#5A87FF&quot;</span>,<span class="string">&quot;#FBF38C&quot;</span>],setCanvasSize=debounce(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;canvasEl.width=<span class="number">2</span>*<span class="built_in">window</span>.innerWidth,canvasEl.height=<span class="number">2</span>*<span class="built_in">window</span>.innerHeight,canvasEl.style.width=<span class="built_in">window</span>.innerWidth+<span class="string">&quot;px&quot;</span>,canvasEl.style.height=<span class="built_in">window</span>.innerHeight+<span class="string">&quot;px&quot;</span>,canvasEl.getContext(<span class="string">&quot;2d&quot;</span>).scale(<span class="number">2</span>,<span class="number">2</span>)&#125;,<span class="number">500</span>),render=anime(&#123;<span class="attr">duration</span>:<span class="number">1</span>/<span class="number">0</span>,<span class="attr">update</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvasEl.width,canvasEl.height)&#125;&#125;);<span class="built_in">document</span>.addEventListener(tap,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="string">&quot;sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;toggle-sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;A&quot;</span>!==e.target.nodeName&amp;&amp;<span class="string">&quot;IMG&quot;</span>!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!<span class="number">1</span>),setCanvasSize(),<span class="built_in">window</span>.addEventListener(<span class="string">&quot;resize&quot;</span>,setCanvasSize,!<span class="number">1</span>)&#125;<span class="string">&quot;use strict&quot;</span>;<span class="function"><span class="keyword">function</span> <span class="title">updateCoords</span>(<span class="params">e</span>)</span>&#123;pointerX=(e.clientX||e.touches[<span class="number">0</span>].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[<span class="number">0</span>].clientY-canvasEl.getBoundingClientRect().top&#125;<span class="function"><span class="keyword">function</span> <span class="title">setParticuleDirection</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> t=anime.random(<span class="number">0</span>,<span class="number">360</span>)*<span class="built_in">Math</span>.PI/<span class="number">180</span>,a=anime.random(<span class="number">50</span>,<span class="number">180</span>),n=[-<span class="number">1</span>,<span class="number">1</span>][anime.random(<span class="number">0</span>,<span class="number">1</span>)]*a;<span class="keyword">return</span>&#123;<span class="attr">x</span>:e.x+n*<span class="built_in">Math</span>.cos(t),<span class="attr">y</span>:e.y+n*<span class="built_in">Math</span>.sin(t)&#125;&#125;<span class="function"><span class="keyword">function</span> <span class="title">createParticule</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=colors[anime.random(<span class="number">0</span>,colors.length-<span class="number">1</span>)],a.radius=anime.random(<span class="number">16</span>,<span class="number">32</span>),a.endPos=setParticuleDirection(a),a.draw=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI,!<span class="number">0</span>),ctx.fillStyle=a.color,ctx.fill()&#125;,a&#125;<span class="function"><span class="keyword">function</span> <span class="title">createCircle</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">var</span> a=&#123;&#125;;<span class="keyword">return</span> a.x=e,a.y=t,a.color=<span class="string">&quot;#F00&quot;</span>,a.radius=<span class="number">0.1</span>,a.alpha=<span class="number">0.5</span>,a.lineWidth=<span class="number">6</span>,a.draw=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI,!<span class="number">0</span>),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=<span class="number">1</span>&#125;,a&#125;<span class="function"><span class="keyword">function</span> <span class="title">renderParticule</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> t=<span class="number">0</span>;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;<span class="function"><span class="keyword">function</span> <span class="title">animateParticules</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> a=createCircle(e,t),n=[],i=<span class="number">0</span>;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;<span class="attr">targets</span>:n,<span class="attr">x</span>:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">return</span> e.endPos.x&#125;,<span class="attr">y</span>:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">return</span> e.endPos.y&#125;,<span class="attr">radius</span>:<span class="number">0.1</span>,<span class="attr">duration</span>:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),<span class="attr">easing</span>:<span class="string">&quot;easeOutExpo&quot;</span>,<span class="attr">update</span>:renderParticule&#125;).add(&#123;<span class="attr">targets</span>:a,<span class="attr">radius</span>:anime.random(<span class="number">80</span>,<span class="number">160</span>),<span class="attr">lineWidth</span>:<span class="number">0</span>,<span class="attr">alpha</span>:&#123;<span class="attr">value</span>:<span class="number">0</span>,<span class="attr">easing</span>:<span class="string">&quot;linear&quot;</span>,<span class="attr">duration</span>:anime.random(<span class="number">600</span>,<span class="number">800</span>)&#125;,<span class="attr">duration</span>:anime.random(<span class="number">1200</span>,<span class="number">1800</span>),<span class="attr">easing</span>:<span class="string">&quot;easeOutExpo&quot;</span>,<span class="attr">update</span>:renderParticule,<span class="attr">offset</span>:<span class="number">0</span>&#125;)&#125;<span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">e,t</span>)</span>&#123;<span class="keyword">var</span> a;<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> n=<span class="built_in">this</span>,i=<span class="built_in">arguments</span>;<span class="built_in">clearTimeout</span>(a),a=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;e.apply(n,i)&#125;,t)&#125;&#125;<span class="keyword">var</span> canvasEl=<span class="built_in">document</span>.querySelector(<span class="string">&quot;.fireworks&quot;</span>);<span class="keyword">if</span>(canvasEl)&#123;<span class="keyword">var</span> ctx=canvasEl.getContext(<span class="string">&quot;2d&quot;</span>),numberOfParticules=<span class="number">30</span>,pointerX=<span class="number">0</span>,pointerY=<span class="number">0</span>,tap=<span class="string">&quot;mousedown&quot;</span>,colors=[<span class="string">&quot;#FF1461&quot;</span>,<span class="string">&quot;#18FF92&quot;</span>,<span class="string">&quot;#5A87FF&quot;</span>,<span class="string">&quot;#FBF38C&quot;</span>],setCanvasSize=debounce(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;canvasEl.width=<span class="number">2</span>*<span class="built_in">window</span>.innerWidth,canvasEl.height=<span class="number">2</span>*<span class="built_in">window</span>.innerHeight,canvasEl.style.width=<span class="built_in">window</span>.innerWidth+<span class="string">&quot;px&quot;</span>,canvasEl.style.height=<span class="built_in">window</span>.innerHeight+<span class="string">&quot;px&quot;</span>,canvasEl.getContext(<span class="string">&quot;2d&quot;</span>).scale(<span class="number">2</span>,<span class="number">2</span>)&#125;,<span class="number">500</span>),render=anime(&#123;<span class="attr">duration</span>:<span class="number">1</span>/<span class="number">0</span>,<span class="attr">update</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvasEl.width,canvasEl.height)&#125;&#125;);<span class="built_in">document</span>.addEventListener(tap,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="string">&quot;sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;toggle-sidebar&quot;</span>!==e.target.id&amp;&amp;<span class="string">&quot;A&quot;</span>!==e.target.nodeName&amp;&amp;<span class="string">&quot;IMG&quot;</span>!==e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!<span class="number">1</span>),setCanvasSize(),<span class="built_in">window</span>.addEventListener(<span class="string">&quot;resize&quot;</span>,setCanvasSize,!<span class="number">1</span>)&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>在 <code>themes/next/layout/_layout.swig</code> 文件末尾添加：  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/clicklove.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+打开 <code>themes/next/_config.yml</code> 文件，在末尾添加如下标识：<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Fireworks</span></span><br><span class="line"><span class="attr">fireworks:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+重新编译后就有鼠标点击特效啦</li>
+</ul>
+</li>
+</ol>
+<h1 id="添加页面人物"><a href="#添加页面人物" class="headerlink" title="添加页面人物"></a>添加页面人物</h1><p>在博客目录下执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+<p>在 <a target="_blank" rel="noopener" href="https://github.com/xiazeyu/live2d-widget-models">lived2d</a>中选择自己想要的人物形象，例子可在作者网站中查看，<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">Author’s original Blog</a>。下载命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-wanko</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>your_blog/_config.yml</code> 或者 <code>themes/next/_config.yml</code> 文件下添加如下配置：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Live2D</span></span><br><span class="line"><span class="comment">## https://github.com/xiazeyu/live2d-widget.js</span></span><br><span class="line"><span class="comment">## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init</span></span><br><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-wanko</span>  <span class="comment">#选择下载过的模型</span></span><br><span class="line">  <span class="attr">display:</span> <span class="comment">#放置位置和大小</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">false</span> <span class="comment">#是否在手机端显示</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="添加网易云音乐播放"><a href="#添加网易云音乐播放" class="headerlink" title="添加网易云音乐播放"></a>添加网易云音乐播放</h1><p>在<a target="_blank" rel="noopener" href="https://music.163.com/">网易云音乐</a>网站搜索自己想添加的音乐，点击生成外链，得到外链html代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=2&amp;id=1471724841&amp;auto=1&amp;height=66&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将代码放到自己想要的地方就行啦，如放在侧边栏 <code>themes/next/layout/_macro/sidebar.swig</code> 中</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mqdxiaoxiao/article/details/93644533">Hexo博客NexT主题下添加分类、标签、关于菜单项</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/nightmare_dimple/article/details/86661502">Hexo博客优化之Next主题美化</a></li>
+<li><a target="_blank" rel="noopener" href="http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html">hexo的next主题个性化教程:打造炫酷网站</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1ff2fcbdd155">Hexo博客第三方主题next进阶教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/104282643">Hexo（sakura）添加live2d看板动画（可对话，换装互动）</a></li>
+<li><a target="_blank" rel="noopener" href="https://zouhua.top/archives/e635378a.html">Hexo-Next主题美化</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 博客</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/15/hexo-blog/" rel="prev" title="Hexo Blog">
+      <i class="fa fa-chevron-left"></i> Hexo Blog
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/21/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" rel="next" title="Hexo本地图片显示问题">
+      Hexo本地图片显示问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Next%E4%B8%BB%E9%A2%98%E9%A3%8E%E6%A0%BC"><span class="nav-number">1.</span> <span class="nav-text">Next主题风格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E6%A0%87"><span class="nav-number">2.</span> <span class="nav-text">添加博客自定义图标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%89%B9%E6%95%88"><span class="nav-number">3.</span> <span class="nav-text">鼠标点击特效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%A1%B5%E9%9D%A2%E4%BA%BA%E7%89%A9"><span class="nav-number">4.</span> <span class="nav-text">添加页面人物</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE"><span class="nav-number">5.</span> <span class="nav-text">添加网易云音乐播放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="谂独"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">谂独</p>
+  <div class="site-description" itemprop="description">Help me understand the best is yet to come <br/> Take me by the hand before I come undone</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ashestar" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ashestar" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:neonat@163.com" title="E-Mail → mailto:neonat@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1471724841&auto=0&height=32"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">谂独</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+  
+</body>
+</html>
