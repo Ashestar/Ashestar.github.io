@@ -13,3 +13,7 @@ categories:
 [TypeScript中文手册](https://typescript.bootcss.com)
 
 <!--more-->
+
+# 参考文章
+
+* [优雅的在vue中使用TypeScript](https://zhuanlan.zhihu.com/p/99343202)

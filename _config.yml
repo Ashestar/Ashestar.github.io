@@ -14,6 +14,7 @@ timezone: Asia/Shanghai
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://ashestar.github.io/
+#url: https://neonatal.gitee.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -105,3 +106,5 @@ deploy:
   type: git
   repository: git@github.com:Ashestar/Ashestar.github.io.git
   branch: main
+  #repository: git@gitee.com:neonatal/neonatal.git
+  #branch: master
