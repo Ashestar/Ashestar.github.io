@@ -1,5 +1,5 @@
 ---
-title: Hexo Blog
+title: Git 分支管理
 date: 2021-08-22 15:43:45
 tags: 
     - Git
@@ -7,7 +7,7 @@ categories:
     - Git
 ---
 
-git分支管理。
+Git进行本地仓库和远程仓库的分支管理。
 
 <!--more-->
 

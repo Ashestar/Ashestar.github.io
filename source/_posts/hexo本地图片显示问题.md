@@ -1,5 +1,5 @@
 ---
-title: Hexo本地图片显示问题
+title: Hexo 本地图片显示问题
 date: 2021-08-21 20:30:00
 tags: 
     - 博客
