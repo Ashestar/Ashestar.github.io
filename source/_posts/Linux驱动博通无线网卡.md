@@ -1,5 +1,5 @@
 ---
-title: linux驱动博通无线网卡
+title: Linux驱动博通无线网卡
 date: 2021-08-25 21:00:00
 tags: 
     - 配置
