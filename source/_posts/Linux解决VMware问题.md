@@ -1,13 +1,13 @@
 ---
 title: Linux解决VMware问题
 date: 2021-08-26 21:00:00
-tags: 
-    - 配置
+tags:
+  - 配置
 categories:
-    - 配置
+  - 配置
 ---
 
-我在Manjaro升级linux内核后启动虚拟机突然报找不到vmmon模块错误，大致如下：
+我在 Manjaro 升级 linux 内核后启动虚拟机突然报找不到 vmmon 模块错误，大致如下：
 
 <!--more-->
 
@@ -20,7 +20,6 @@ could not open /dev/ vmmon，Please make sure that the kernel module `vmmon’ i
 ```bash
 sudo vmware-modconfig --console --install-all
 ```
-
 
 但我执行后却报找不到文件
 
@@ -42,7 +41,7 @@ Unable to stop services
 no such file or directory: /etc/init.d/vmware
 ```
 
-也试了重装VMware，还是一样。
+也试了重装 VMware，还是一样。
 
 最后在回答中看到有这三条命令，试了一下，问题终于解决。
 

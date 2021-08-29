@@ -1,14 +1,14 @@
 ---
 title: SpringBoot banner
 date: 2021-05-29 21:00:00
-tags: 
-    - Java
+tags:
+  - Java
 categories:
-    - Java
-    - Spring Boot
+  - Java
+  - Spring Boot
 ---
 
-Spring Boot 启动时，控制台输出的图案叫 *banner*，如下所示的Spring图案。
+Spring Boot 启动时，控制台输出的图案叫 _banner_，如下所示的 Spring 图案。
 
 ```bash
   .   ____          _            __ _ _
@@ -22,85 +22,85 @@ Spring Boot 启动时，控制台输出的图案叫 *banner*，如下所示的Sp
 
 <!--more-->
 
-# 最简单方式改写banner输出的图案
+# 最简单方式改写 banner 输出的图案
 
-1. 在src/main/resources目录下新建banner.txt
-2. 在banner.txt上加上图案，可以在这个网站-[一个ASCII图案网站](http://patorjk.com/software/taag/)-上获得自己想要的ASCII图案
+1. 在 src/main/resources 目录下新建 banner.txt
+2. 在 banner.txt 上加上图案，可以在这个网站-[一个 ASCII 图案网站](http://patorjk.com/software/taag/)-上获得自己想要的 ASCII 图案
 
 这样在启动项目时控制台就可以打印出自己的图案了。
 
-也可以使用jpg、png甚至gif，都命名为banner。
+也可以使用 jpg、png 甚至 gif，都命名为 banner。
 
-或者通过设置`banner.image.location`属性来作为banner信息，这些图片会被转换为有艺术感的ASCII，并且打印在文本的顶部。
+或者通过设置`banner.image.location`属性来作为 banner 信息，这些图片会被转换为有艺术感的 ASCII，并且打印在文本的顶部。
 
-# 对banner做配置
+# 对 banner 做配置
 
 1. 在启动类上设置
 
-    ```java
-    public static void main(String[] args) {
-        // SpringApplication.run(TestApplication.class, args);
-        SpringApplication springApplication = new SpringApplication(TestApplication.class);
-        springApplication.setBannerMode(Banner.Mode.CONSOLE);
-        springApplication.run(args);
-    }
-    ```
-   
-2. 在properties文件中做配置
+   ```java
+   public static void main(String[] args) {
+       // SpringApplication.run(TestApplication.class, args);
+       SpringApplication springApplication = new SpringApplication(TestApplication.class);
+       springApplication.setBannerMode(Banner.Mode.CONSOLE);
+       springApplication.run(args);
+   }
+   ```
 
-    ```properties
-    # 打印到控制台
-    spring.main.banner-mode=console
-    # 打印到日志文件
-    spring.main.banner-mode=log
-    # 不打印
-    spring.main.banner-mode=off
-    ```
+2. 在 properties 文件中做配置
 
-3. banner配置解析
+   ```properties
+   # 打印到控制台
+   spring.main.banner-mode=console
+   # 打印到日志文件
+   spring.main.banner-mode=log
+   # 不打印
+   spring.main.banner-mode=off
+   ```
 
-    * 模式
+3. banner 配置解析
 
-        ```java
-        OFF					// 关闭banner
-        CONSOLE			// 在控制台输出banner图案
-        LOG					// 应为在日志中打印图案，控制台也有
-        ```
+   - 模式
 
-    * 打印样式
+     ```java
+     OFF					// 关闭banner
+     CONSOLE			// 在控制台输出banner图案
+     LOG					// 应为在日志中打印图案，控制台也有
+     ```
 
-        ```java
-        AnsiColor         // 用来设定字符的前景色
-        AnsiBackground    // 用来设定字符的背景色
-        AnsiStyle         // 用来控制加粗、斜体、下划线等等。
-        ```
-    
-    * 可以加上文件版本号等
+   - 打印样式
 
-        ```java
-        ${application.title}                    // MANIFEST.MF文件中的应用名称
+     ```java
+     AnsiColor         // 用来设定字符的前景色
+     AnsiBackground    // 用来设定字符的背景色
+     AnsiStyle         // 用来控制加粗、斜体、下划线等等。
+     ```
 
-        ${application.version}                  //  这个是MANIFEST.MF文件中的版本号  
+   - 可以加上文件版本号等
 
-        ${application.formatted-version}        // 这个是上面的的版本号前面加v后上括号  
+     ```java
+     ${application.title}                    // MANIFEST.MF文件中的应用名称
 
-        ${spring-boot.version}                  // 这个是springboot的版本号  
+     ${application.version}                  //  这个是MANIFEST.MF文件中的版本号  
 
-        ${spring-boot.formatted-version}				// 同上
-        ```
+     ${application.formatted-version}        // 这个是上面的的版本号前面加v后上括号  
+
+     ${spring-boot.version}                  // 这个是springboot的版本号  
+
+     ${spring-boot.formatted-version}				// 同上
+     ```
 
 4. 示例
 
-    ```bash
-    ${AnsiColor.BRIGHT_MAGENTA}
-        ______       ___
-        /\__  _\     /\_ \
-        \/_/\ \/     \//\ \     ___   __  __     __       __  __    ___   __  __
-        \ \ \       \ \ \   / __`\/\ \/\ \  /'__`\    /\ \/\ \  / __`\/\ \/\ \
-            \_\ \__     \_\ \_/\ \\ \ \ \_/ |/\  __/    \ \ \_\ \/\ \\ \ \ \_\ \ \
-            /\_____\    /\____\ \____/\ \___/ \ \____\    \/`____ \ \____/\ \____/
-            \/_____/    \/____/\/___/  \/__/   \/____/     `/___/> \/___/  \/___/
-                                                            /\___/
-                                                            \/__/
-                    :: Spring Boot ::							${spring-boot.version}   
-    ```
+   ```bash
+   ${AnsiColor.BRIGHT_MAGENTA}
+       ______       ___
+       /\__  _\     /\_ \
+       \/_/\ \/     \//\ \     ___   __  __     __       __  __    ___   __  __
+       \ \ \       \ \ \   / __`\/\ \/\ \  /'__`\    /\ \/\ \  / __`\/\ \/\ \
+           \_\ \__     \_\ \_/\ \\ \ \ \_/ |/\  __/    \ \ \_\ \/\ \\ \ \ \_\ \ \
+           /\_____\    /\____\ \____/\ \___/ \ \____\    \/`____ \ \____/\ \____/
+           \/_____/    \/____/\/___/  \/__/   \/____/     `/___/> \/___/  \/___/
+                                                           /\___/
+                                                           \/__/
+                   :: Spring Boot ::							${spring-boot.version}   
+   ```

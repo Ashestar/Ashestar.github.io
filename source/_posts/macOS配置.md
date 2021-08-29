@@ -1,19 +1,19 @@
 ---
 title: macOS配置
 date: 2021-05-29 21:00:00
-tags: 
-    - 配置
+tags:
+  - 配置
 categories:
-    - 配置
+  - 配置
 ---
 
-这里记录一下我使用macOS时做的一些配置。
+这里记录一下我使用 macOS 时做的一些配置。
 
 <!--more-->
 
 # Homebrew
 
-​	Homebrew 是mac的包管理器，仅需执行相应的命令,就能下载安装需要的软件包，可以省掉自己去下载、解压、拖拽(安装)等繁琐的步骤。
+​ Homebrew 是 mac 的包管理器，仅需执行相应的命令,就能下载安装需要的软件包，可以省掉自己去下载、解压、拖拽(安装)等繁琐的步骤。
 
 > Homebrew 官方文档 https://brew.sh/
 
@@ -31,48 +31,48 @@ categories:
 
 ## 配置
 
-​	Homebrew 安装软件时非常慢。为了提升安装速度，需要更改 Homebrew 的安装源，将其替换成国内镜像。
-​	这里用的是由中科大负责托管维护的 Homebrew 镜像。其中，前两个为必须配置的项目，后两个可按需配置。
+​ Homebrew 安装软件时非常慢。为了提升安装速度，需要更改 Homebrew 的安装源，将其替换成国内镜像。
+​ 这里用的是由中科大负责托管维护的 Homebrew 镜像。其中，前两个为必须配置的项目，后两个可按需配置。
 
-* 替换 brew.git ：
+- 替换 brew.git ：
 
   ```bash
   git -C "$(brew --repo)" remote set-url origin https://mirrors.ustc.edu.cn/brew.git
   ```
 
-* 替换 homebrew-core.git ：
+- 替换 homebrew-core.git ：
 
   ```bash
   git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
   ```
 
-* 替换 homebrew-cask.git ：
+- 替换 homebrew-cask.git ：
 
   ```bash
   git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
   ```
 
-* 替换 homebrew-bottles ：
+- 替换 homebrew-bottles ：
 
   根据使用的终端修改。
 
-  若是bash，则执行：
+  若是 bash，则执行：
 
   ```bash
   echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
-  
+
   source ~/.bash_profile
   ```
 
-  若是zsh，则执行：
+  若是 zsh，则执行：
 
   ```bash
   echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
-  
+
   source ~/.zshrc
   ```
 
-  这样Homebrew配置就完成了
+  这样 Homebrew 配置就完成了
 
 ## 使用
 
@@ -84,34 +84,34 @@ brew install 软件名
 // 卸载：
 brew uninstall 软件名
 // 更新 Homebrew：
-brew update 
+brew update
 // 查看 Homebrew 配置信息：
-brew config 
+brew config
 ```
 
-使用官方脚本同样会遇到uninstall地址无法访问问题，可以替换为下面脚本：
+使用官方脚本同样会遇到 uninstall 地址无法访问问题，可以替换为下面脚本：
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/uninstall)"
 ```
 
-# 配置使用zsh和oh-my-zsh
+# 配置使用 zsh 和 oh-my-zsh
 
-Mac 终端默认 shell 为 bash，可配置为其他，我更喜欢zsh一点。
+Mac 终端默认 shell 为 bash，可配置为其他，我更喜欢 zsh 一点。
 
-查看当前使用的shell
+查看当前使用的 shell
 
 ```bash
 echo $SHELL
 ```
 
-查看安装的shell
+查看安装的 shell
 
 ```bash
 cat /etc/shells
 ```
 
-## 安装zsh
+## 安装 zsh
 
 执行：
 
@@ -119,15 +119,15 @@ cat /etc/shells
 brew install zsh
 ```
 
-切换终端为zsh：
+切换终端为 zsh：
 
 ```
 chsh -s /bin/zsh
 ```
 
-重启终端即可使用zsh
+重启终端即可使用 zsh
 
-## 安装oh-my-zsh
+## 安装 oh-my-zsh
 
 执行：
 
@@ -147,13 +147,13 @@ vim ~/.zshrc
 source ~/.zshrc
 ```
 
-查看zsh的主题，[oh-my-zsh Themes](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+查看 zsh 的主题，[oh-my-zsh Themes](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
 
 ```bash
 cd ~/.oh-my-zsh/themes && ls
 ```
 
-查看当前使用主题名称（设置主题为random时可查看当前随机到的主题名称）
+查看当前使用主题名称（设置主题为 random 时可查看当前随机到的主题名称）
 
 ```bash
 echo $ZSH_THEME
@@ -184,7 +184,6 @@ git clone git://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-
 
 注：报 “Insecure completion-dependent directories detected“ 错误解决办法
 
-
 这是由于 `/usr/local/share/zsh` `/usr/local/share/zsh/site-functions` 这两个目录没有权限，给这个两个目录赋权就可以了。[issue](https://github.com/robbyrussell/oh-my-zsh/issues/6835)
 
 ```bash
@@ -193,7 +192,7 @@ chmod 755 /usr/local/share/zsh
 chmod 755 /usr/local/share/zsh/site-functions
 ```
 
-# 配置使用Git
+# 配置使用 Git
 
 查看用户名和邮箱
 
@@ -211,7 +210,7 @@ git config --global user.name "username"
 git config --global user.email "email"
 ```
 
-查看配置文件的位置，Git会优先使用库级别的配置，再然后是global级别的配置，最后是system级别的配置
+查看配置文件的位置，Git 会优先使用库级别的配置，再然后是 global 级别的配置，最后是 system 级别的配置
 
 ```bash
 # /etc/gitconfig
@@ -233,7 +232,7 @@ git config
 
 # Tips
 
-* 取消更新小红点
+- 取消更新小红点
 
   1. 在配置中取消勾选自动检查更新
 
@@ -241,11 +240,11 @@ git config
 
      ```bash
      defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
-     
+
      killall Dock
      ```
 
-  3. 屏蔽网络访问，编辑host文件
+  3. 屏蔽网络访问，编辑 host 文件
 
      ```bash
      127.0.0.1 	swscan.apple.com
@@ -253,19 +252,20 @@ git config
      127.0.0.1 	swdist.apple.com
      ```
 
-* 查看隐藏文件
+- 查看隐藏文件
 
   1. 快捷键 command+shift+.
 
   2. 命令行：
-    ```bash
-     # 显示文件夹
-     defaults write com.apple.finder AppleShowAllFiles TRUE
-     # 重启finder
-     killall Finder
-     
-     # 隐藏文件夹
-     defaults write com.apple.finder AppleShowAllFiles FALSE
-     # 重启finder
-     killall Finder
-     ```
+
+  ```bash
+   # 显示文件夹
+   defaults write com.apple.finder AppleShowAllFiles TRUE
+   # 重启finder
+   killall Finder
+
+   # 隐藏文件夹
+   defaults write com.apple.finder AppleShowAllFiles FALSE
+   # 重启finder
+   killall Finder
+  ```

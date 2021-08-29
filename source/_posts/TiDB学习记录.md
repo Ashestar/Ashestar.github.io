@@ -1,18 +1,18 @@
 ---
 title: TiDB学习记录
 date: 2021-06-22 16:00:00
-tags: 
-    - SQL
+tags:
+  - SQL
 categories:
-    - SQL
-    - TiDB
+  - SQL
+  - TiDB
 ---
 
-先上TiDB官方文档链接，[TiDB 简介 - PingCAP Docs](https://docs.pingcap.com/zh/tidb/stable/overview)
+先上 TiDB 官方文档链接，[TiDB 简介 - PingCAP Docs](https://docs.pingcap.com/zh/tidb/stable/overview)
 
 <!--more-->
 
-# 在macOS上部署本地测试环境
+# 在 macOS 上部署本地测试环境
 
 1. 下载安装 TiUP：
 
@@ -28,13 +28,13 @@ categories:
 
 3. 启动集群：
 
-   * 直接执行 `tiup playground` 命令会运行最新版本的 TiDB 集群，其中 TiDB、TiKV、PD 和 TiFlash 实例各 1 个：
+   - 直接执行 `tiup playground` 命令会运行最新版本的 TiDB 集群，其中 TiDB、TiKV、PD 和 TiFlash 实例各 1 个：
 
      ```bash
      tiup playground
      ```
 
-   * 可以指定 TiDB 版本以及各组件实例个数，命令类似于：
+   - 可以指定 TiDB 版本以及各组件实例个数，命令类似于：
 
      ```bash
      tiup playground v5.0.2 --db 2 --pd 3 --kv 3 --monitor
@@ -50,13 +50,13 @@ categories:
 
 4. 访问 TiDB 数据库：
 
-   * 使用 TiUP `client` 连接 TiDB：
+   - 使用 TiUP `client` 连接 TiDB：
 
      ```bash
      tiup client
      ```
 
-   * 使用 MySQL 客户端连接 TiDB：
+   - 使用 MySQL 客户端连接 TiDB：
 
      ```bash
      # 此连接地址会在启动集群时在终端提示
@@ -69,9 +69,9 @@ categories:
 
 7. 清理集群：
 
-   * ctrl+c 终止进程。
+   - ctrl+c 终止进程。
 
-   * 执行以下命令清理所有集群：
+   - 执行以下命令清理所有集群：
 
      ```bash
      tiup clean --all
