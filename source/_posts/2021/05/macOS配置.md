@@ -5,6 +5,7 @@ tags:
   - 配置
 categories:
   - 配置
+  - macOS
 ---
 
 这里记录一下我使用 macOS 时做的一些配置。
