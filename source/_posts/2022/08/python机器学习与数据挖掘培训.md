@@ -178,3 +178,5 @@ PCA 降维算法函数。
 3. 对切词结果进行清洗，转为精简词汇库（出现与否）
 
 # 示例代码库
+
+https://github.com/Ashestar/python_data_mining
