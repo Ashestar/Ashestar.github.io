@@ -123,12 +123,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">15</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">27</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-17 15:05:10" itemprop="dateModified" datetime="2022-09-17T15:05:10+08:00">2022-09-17</time>
+                <time title="修改时间：2022-09-26 22:59:54" itemprop="dateModified" datetime="2022-09-26T22:59:54+08:00">2022-09-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,11 +202,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/%E5%9F%B9%E8%AE%AD/" itemprop="url" rel="index"><span itemprop="name">培训</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+                  <a href="/categories/%E5%9F%B9%E8%AE%AD/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
                 </span>
             </span>
 
@@ -221,41 +221,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Spring-核心原理"><a href="#Spring-核心原理" class="headerlink" title="Spring 核心原理"></a>Spring 核心原理</h1><h2 id="简化开发的几个策略"><a href="#简化开发的几个策略" class="headerlink" title="简化开发的几个策略"></a>简化开发的几个策略</h2><ol>
-<li>基于 pojo 的轻量级和最小侵入性编程</li>
-<li>通过依赖注入和面向接口松耦合</li>
-<li>基于切面和注解进行声明式编程</li>
-<li>通过切面和模版减少样板式代码</li>
-</ol>
-<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>将被代理类包装起来然后重新实现相同的方法，并且调用原来方法的同时可以在方法前后添加一个新的处理。</p>
-<ul>
-<li>这种代理模式可以使用继承或组合来使用，当调用时需要使用的是代理类的对象。</li>
-<li>通过继承被代理对象，重写被代理类方法，可以对其进行代理，被代理类无需实现接口。</li>
-<li>被代理类和代理类都需要实现相同接口，被代理类作为代理类的组合属性成员传入。</li>
-<li>静态代理：静态编码定义代理类。</li>
-<li>动态代理：动态生成代理类。使用反射和字节码，在运行期间创建指定接口或类的子类以及它的实例对象的一项技术，通过此技术可以对代码进行无侵入式的增强。<ul>
-<li><strong>JDK 动态代理</strong>：java.lang.reflect 包中的 Proxy 类和 InvocationHandler 接口提供了生成动态代理类的能力。</li>
-<li><strong>CGLIB 动态代理</strong>：第三方代码生成类库，运行时在内存中动态生成一个子类对象（通过继承方式）从而实现对目标对象功能的拓展。</li>
-</ul>
-</li>
-</ul>
-<h2 id="Bean-的拓展接口"><a href="#Bean-的拓展接口" class="headerlink" title="Bean 的拓展接口"></a>Bean 的拓展接口</h2><ul>
-<li>BeanPostProcessor：Bean 级别、针对具体的 Bean 进行处理，默认对 Spring 容器的所有 Bean 进行处理。</li>
-<li>BeanFactoryPostProcessor：对 BeanDefinition 对象进行修改，针对 Bean 容器，在当前 BeanFactory 初始化后、Bean 实例化之前修改 Bean 的定义属性。</li>
-</ul>
-<h1 id="面向切面-AOP"><a href="#面向切面-AOP" class="headerlink" title="面向切面 AOP"></a>面向切面 AOP</h1><p>面向切面编程（AOP）通过提供另一种思考程序结构的方式来补充面向对象编程（OOP）。</p>
-<p>OOP 中模块化的关键单元是类，AOP 中模块化的单元是切面。</p>
-<p>切面支持跨多种类型和对象的关注点（例如事务管理）的模块化。</p>
-<p>Spring IOC 容器不依赖 AOP，AOP 补充了 Spring IOC 以提供非常强大的中间件解决方案。</p>
-<h2 id="顺序问题"><a href="#顺序问题" class="headerlink" title="顺序问题"></a>顺序问题</h2><ul>
-<li>从 Spring Framework 5.2.7 开始，同一个切面类中定义的需要在同一个连接点运行的通知方法根据通知类型的优先级由高到低排序：@Around，@Before，@After，@AfterRunning，@AfterThrowing。</li>
-<li>当同一个类中定义两条相同类型的 Advice 时，执行顺序是未定义的（不应该有多条相同的 Advice）。</li>
-<li>不同切面类可以通过 Order 决定顺序，值越小优先级越高。</li>
-</ul>
-<h1 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h1><p>Spring MVC 可以使用拦截器对请求进行拦截处理，用户可以自定义拦截器实现特定功能，自定义拦截器必须实现 HandlerInterceptor 接口。</p>
-<p>拦截器方法执行顺序：</p>
-<p>preHandle -&gt; handle -&gt; postHandle -&gt; render -&gt; afterCompletion</p>
-
+          <p>2022 年 SpringBoot 培训记录。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/16/2022/09/SpringBoot%E5%9F%B9%E8%AE%AD2022/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -288,7 +262,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/08/05/2022/08/SpringBoot%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">python机器学习与数据挖掘培训</a>
+            <a href="/2022/08/05/2022/08/SpringBoot%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">SpringBoot单元测试</a>
         </h2>
 
         <div class="post-meta">
@@ -305,7 +279,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 17:24:18" itemprop="dateModified" datetime="2022-09-24T17:24:18+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-26 23:01:00" itemprop="dateModified" datetime="2022-09-26T23:01:00+08:00">2022-09-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -392,7 +366,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 16:10:53" itemprop="dateModified" datetime="2022-09-24T16:10:53+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-26 23:01:13" itemprop="dateModified" datetime="2022-09-26T23:01:13+08:00">2022-09-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -404,11 +378,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%9F%B9%E8%AE%AD/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%9F%B9%E8%AE%AD/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                  <a href="/categories/%E5%9F%B9%E8%AE%AD/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
                 </span>
             </span>
 
@@ -629,10 +599,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-26 20:06:13 / 修改时间：20:32:08" itemprop="dateCreated datePublished" datetime="2022-07-26T20:06:13+08:00">2022-07-26</time>
+              <time title="创建时间：2022-07-26 20:06:13" itemprop="dateCreated datePublished" datetime="2022-07-26T20:06:13+08:00">2022-07-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-26 23:02:02" itemprop="dateModified" datetime="2022-09-26T23:02:02+08:00">2022-09-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -708,10 +684,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-25 23:16:27 / 修改时间：23:41:17" itemprop="dateCreated datePublished" datetime="2022-07-25T23:16:27+08:00">2022-07-25</time>
+              <time title="创建时间：2022-07-25 23:16:27" itemprop="dateCreated datePublished" datetime="2022-07-25T23:16:27+08:00">2022-07-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-26 23:02:25" itemprop="dateModified" datetime="2022-09-26T23:02:25+08:00">2022-09-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -722,7 +704,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/ADB/" itemprop="url" rel="index"><span itemprop="name">ADB</span></a>
+                  <a href="/categories/Android/adb/" itemprop="url" rel="index"><span itemprop="name">adb</span></a>
                 </span>
             </span>
 
@@ -787,21 +769,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-24 23:12:33 / 修改时间：23:22:49" itemprop="dateCreated datePublished" datetime="2022-07-24T23:12:33+08:00">2022-07-24</time>
+              <time title="创建时间：2022-07-24 23:12:33" itemprop="dateCreated datePublished" datetime="2022-07-24T23:12:33+08:00">2022-07-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-26 23:00:11" itemprop="dateModified" datetime="2022-09-26T23:00:11+08:00">2022-09-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
                 </span>
             </span>
 
@@ -866,21 +854,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-24 23:02:34 / 修改时间：23:10:28" itemprop="dateCreated datePublished" datetime="2022-07-24T23:02:34+08:00">2022-07-24</time>
+              <time title="创建时间：2022-07-24 23:02:34" itemprop="dateCreated datePublished" datetime="2022-07-24T23:02:34+08:00">2022-07-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-26 23:02:40" itemprop="dateModified" datetime="2022-09-26T23:02:40+08:00">2022-09-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
                 </span>
             </span>
 
@@ -1081,13 +1075,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
