@@ -3,8 +3,10 @@ title: Linux驱动博通无线网卡
 date: 2021-08-25 21:00:00
 tags:
   - 配置
+  - Linux
 categories:
   - 配置
+  - Linux
 ---
 
 解决基于 Arch Linux 的 Linux 发行版 Manjaro 无法识别博通无线网卡驱动的问题。

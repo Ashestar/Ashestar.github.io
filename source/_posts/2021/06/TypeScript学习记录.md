@@ -2,6 +2,7 @@
 title: TypeScript学习记录
 date: 2021-06-22 18:00:00
 tags:
+  - 前端
   - TypeScript
 categories:
   - 前端

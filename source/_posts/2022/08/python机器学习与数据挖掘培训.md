@@ -5,9 +5,9 @@ date: 2022-08-05 09:14:04
 tags:
   - 培训
   - 机器学习
+  - python
 categories:
   - 培训
-  - python
   - 机器学习
 ---
 

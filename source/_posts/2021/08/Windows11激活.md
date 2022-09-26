@@ -3,8 +3,10 @@ title: Windows11 激活
 date: 2021-08-30 21:50:00
 tags:
   - 配置
+  - Windows
 categories:
   - 配置
+  - Windows
 ---
 
 装了 Windows11 的测试版，一直提示激活。找了半天的激活码，没一个能用的，最后找到一个教程。

@@ -4,6 +4,7 @@ title: AppleSilicon芯片macOS配置
 date: 2022-07-26 20:06:13
 tags:
   - 配置
+  - macOS
 categories:
   - 配置
   - macOS

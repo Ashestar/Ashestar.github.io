@@ -3,8 +3,10 @@ title: Windows10 安装 Scoop
 date: 2021-08-23 21:50:00
 tags:
   - 配置
+  - Windows
 categories:
   - 配置
+  - Windows
 ---
 
 Scoop 是可用于 windows 的一款包管理工具，可以下载程序并自动配置环境变量等，记录一下安装方法。

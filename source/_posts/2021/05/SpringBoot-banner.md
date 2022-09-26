@@ -3,9 +3,10 @@ title: SpringBoot banner
 date: 2021-05-29 21:00:00
 tags:
   - Java
+  - SpringBoot
 categories:
   - Java
-  - Spring Boot
+  - SpringBoot
 ---
 
 Spring Boot 启动时，控制台输出的图案叫 _banner_，如下所示的 Spring 图案。

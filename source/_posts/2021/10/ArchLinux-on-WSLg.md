@@ -3,8 +3,10 @@ title: ArchLinux on WSLg
 date: 2021-10-16 20:45:56
 tags:
   - 配置
+  - WSL
 categories:
   - 配置
+  - WSL
 ---
 
 经过多次尝试，我终于成功在 WSLg(Windows Subsystem for Linux GUI) 上成功安装了 ArchLinux 并配置了中文输入法，真是令人唏嘘，特别是卡在配置中文输入法上一两个星期真是令人感到非常气馁。

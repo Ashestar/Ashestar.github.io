@@ -3,10 +3,11 @@ layout: pages
 title: github clone 失败解决
 date: 2022-07-24 23:12:33
 tags:
-  - git
-categories:
-  - git
   - 配置
+  - Git
+categories:
+  - 配置
+  - Git
 ---
 
 github clone 一直失败，挂了梯子，现在记录一下怎么配置 git 代理。

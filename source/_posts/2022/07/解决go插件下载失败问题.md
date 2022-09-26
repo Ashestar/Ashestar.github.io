@@ -3,10 +3,11 @@ layout: pages
 title: 解决go插件下载失败问题
 date: 2022-07-24 23:02:34
 tags:
+  - 配置
   - golang
 categories:
-  - golang
   - 配置
+  - golang
 ---
 
 国内下载 go 插件会报错，不用梯子只能配置 go mod 代理了。

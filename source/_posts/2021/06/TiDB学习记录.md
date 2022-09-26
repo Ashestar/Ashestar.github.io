@@ -3,6 +3,7 @@ title: TiDB学习记录
 date: 2021-06-22 16:00:00
 tags:
   - SQL
+  - TiDB
 categories:
   - SQL
   - TiDB

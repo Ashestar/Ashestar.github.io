@@ -3,6 +3,7 @@ title: macOS配置
 date: 2021-05-29 21:00:00
 tags:
   - 配置
+  - macOS
 categories:
   - 配置
   - macOS

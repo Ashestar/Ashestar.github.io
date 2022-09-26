@@ -1,6 +1,6 @@
 ---
 layout: pages
-title: python机器学习与数据挖掘培训
+title: SpringBoot单元测试
 date: 2022-08-05 09:14:04
 tags:
   - Java
@@ -115,7 +115,7 @@ class DemoApplicationTests {
 2. 通过 RestTemplate 远程调用
 
 ```java
-
+// todo
 ```
 
 # 其他事项

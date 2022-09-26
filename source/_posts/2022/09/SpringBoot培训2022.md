@@ -3,12 +3,17 @@ layout: pages
 title: SpringBoot培训2022
 date: 2022-09-16 10:15:12
 tags:
+  - 培训
   - Java
   - SpringBoot
 categories:
-  - Java
+  - 培训
   - SpringBoot
 ---
+
+2022 年 SpringBoot 培训记录。
+
+<!--more-->
 
 # Spring 核心原理
 

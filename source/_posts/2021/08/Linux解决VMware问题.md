@@ -3,8 +3,10 @@ title: Linux解决VMware问题
 date: 2021-08-26 21:00:00
 tags:
   - 配置
+  - Linux
 categories:
   - 配置
+  - Linux
 ---
 
 我在 Manjaro 升级 linux 内核后启动虚拟机突然报找不到 vmmon 模块错误，大致如下：

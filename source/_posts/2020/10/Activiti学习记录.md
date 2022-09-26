@@ -3,9 +3,10 @@ title: Activiti学习记录
 date: 2020-10-26 09:00:00
 tags:
   - Java
+  - SpringBoot
 categories:
   - Java
-  - Spring Boot
+  - SpringBoot
 ---
 
 # Activiti 官方网站

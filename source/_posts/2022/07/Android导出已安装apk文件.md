@@ -4,9 +4,10 @@ title: Android导出已安装apk文件
 date: 2022-07-25 23:16:27
 tags:
   - Android
+  - adb
 categories:
   - Android
-  - ADB
+  - adb
 ---
 
 在`WSA`愉快的玩耍过程中，想要测试一下手机上已安装的应用，只能用流量的我心疼再下载一次的花费，于是搜索能不能通过`adb`导出自己手机上的软件，说实话还挺容易的。

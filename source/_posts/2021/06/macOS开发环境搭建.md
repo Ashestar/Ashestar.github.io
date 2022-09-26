@@ -3,8 +3,10 @@ title: macOS开发环境搭建
 date: 2021-06-05 09:00:00
 tags:
   - 配置
+  - macOS
 categories:
   - 配置
+  - macOS
 ---
 
 这里记录一些开发软件的安装配置，推荐先安装好 Homebrew，简单省事。
