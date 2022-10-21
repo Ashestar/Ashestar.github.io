@@ -77,3 +77,7 @@ categories:
      ```bash
      tiup clean --all
      ```
+
+# 文章收录
+
+- [TiDB 源码阅读系列文章（一）序](https://zhuanlan.zhihu.com/p/36500508)
