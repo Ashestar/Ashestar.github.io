@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico">
+  <link rel="mask-icon" href="/images/favicon-32.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ashestar.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="业务提出一个需求，提交某张表 A 的时候判断它与另一张表 B 的数据是否有改变，有的话提交表 A 前先提示更新数据，用程序判断简直是噩梦，只能搜索一下看能不能直接在数据库里面比较两批数据，幸好是有的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql比较两张表数据是否相同">
+<meta property="og:url" content="https://ashestar.github.io/2022/11/19/2022/11/sql%E6%AF%94%E8%BE%83%E4%B8%A4%E5%BC%A0%E8%A1%A8%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C/index.html">
+<meta property="og:site_name" content="Gone With the Wind">
+<meta property="og:description" content="业务提出一个需求，提交某张表 A 的时候判断它与另一张表 B 的数据是否有改变，有的话提交表 A 前先提示更新数据，用程序判断简直是噩梦，只能搜索一下看能不能直接在数据库里面比较两批数据，幸好是有的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-19T14:52:11.000Z">
+<meta property="article:modified_time" content="2022-11-19T15:13:58.926Z">
+<meta property="article:author" content="谂独">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ashestar.github.io/2022/11/19/2022/11/sql%E6%AF%94%E8%BE%83%E4%B8%A4%E5%BC%A0%E8%A1%A8%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>sql比较两张表数据是否相同 | Gone With the Wind</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Gone With the Wind</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">谂独的部落阁</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">23</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">28</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ashestar.github.io/2022/11/19/2022/11/sql%E6%AF%94%E8%BE%83%E4%B8%A4%E5%BC%A0%E8%A1%A8%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="谂独">
+      <meta itemprop="description" content="Help me understand the best is yet to come <br/> Take me by the hand before I come undone">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gone With the Wind">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          sql比较两张表数据是否相同
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-19 22:52:11 / 修改时间：23:13:58" itemprop="dateCreated datePublished" datetime="2022-11-19T22:52:11+08:00">2022-11-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>业务提出一个需求，提交某张表 A 的时候判断它与另一张表 B 的数据是否有改变，有的话提交表 A 前先提示更新数据，用程序判断简直是噩梦，只能搜索一下看能不能直接在数据库里面比较两批数据，幸好是有的。</p>
+<span id="more"></span>
+
+<p>先是找到说用 <code>inner join</code> 进行关联查询的，说是 <code>表 A 数据条数= 表 B 数据条数 = 表A inner join 表B 的条数</code> 即可认为一样，<strong>但是要注意表 A 和表 B 里面要先分组去重</strong>。</p>
+<p>不过后面又看到 <code>minus</code> 操作应该可以实现操作，感觉也比较简单一点，可以对查询结果集的进行减法操作。</p>
+<p>A minus B 就意味着将结果集 A 去除结果集 B 中所包含的所有记录后的结果，即在 A 中存在，而在 B 中不存在的记录。</p>
+<p>对 Oracle 来说，minus 操作有两点需要注意：</p>
+<ul>
+<li>Oracle 的 minus 是按列进行比较的，所以 A 能够 minus B 的前提条件是结果集 A 和结果集 B 需要有相同的列数，且相同列索引的列具有相同的数据类型。</li>
+<li>Oracle 会对 minus 后的结果集进行去重，即如果 A 中原本多条相同的记录数在进行 A minus B 后将会只剩一条对应的记录。</li>
+</ul>
+<p>sql 如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段名称 <span class="keyword">from</span> 表<span class="number">1</span> minus <span class="keyword">select</span> 字段名称 <span class="keyword">from</span> 表<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>只要 A minus B 和 B minus A 都返回空集就可以了。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113617244">如何用 sql 比较两张表数据是否一致？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zuiyue_jing/p/12019766.html">Oracle 函数——MINUS</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/28/2022/12/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4%E5%9F%B9%E8%AE%AD%E8%AE%B0%E5%BD%95/" rel="prev" title="产品经理与互联网思维培训记录">
+      <i class="fa fa-chevron-left"></i> 产品经理与互联网思维培训记录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/12/08/2022/12/PowerBI%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="next" title="PowerBI数据分析最佳实践">
+      PowerBI数据分析最佳实践 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="谂独"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">谂独</p>
+  <div class="site-description" itemprop="description">Help me understand the best is yet to come <br/> Take me by the hand before I come undone</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ashestar" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ashestar" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:neonat@163.com" title="E-Mail → mailto:neonat@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1471724841&auto=0&height=32"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">谂独</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+  
+</body>
+</html>
