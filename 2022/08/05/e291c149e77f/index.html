@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico">
+  <link rel="mask-icon" href="/images/favicon-32.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ashestar.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2022 年数据挖掘培训记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python机器学习与数据挖掘培训">
+<meta property="og:url" content="https://ashestar.github.io/2022/08/05/e291c149e77f/index.html">
+<meta property="og:site_name" content="Gone With the Wind">
+<meta property="og:description" content="2022 年数据挖掘培训记录。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-05T01:14:04.000Z">
+<meta property="article:modified_time" content="2022-09-26T15:01:13.640Z">
+<meta property="article:author" content="谂独">
+<meta property="article:tag" content="培训">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ashestar.github.io/2022/08/05/e291c149e77f/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>python机器学习与数据挖掘培训 | Gone With the Wind</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Gone With the Wind</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">谂独的部落阁</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">29</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ashestar.github.io/2022/08/05/e291c149e77f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="谂独">
+      <meta itemprop="description" content="Help me understand the best is yet to come <br/> Take me by the hand before I come undone">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gone With the Wind">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python机器学习与数据挖掘培训
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-05 09:14:04" itemprop="dateCreated datePublished" datetime="2022-08-05T09:14:04+08:00">2022-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-26 23:01:13" itemprop="dateModified" datetime="2022-09-26T23:01:13+08:00">2022-09-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%B9%E8%AE%AD/" itemprop="url" rel="index"><span itemprop="name">培训</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9F%B9%E8%AE%AD/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2022 年数据挖掘培训记录。</p>
+<span id="more"></span>
+
+<p>DARPA AI：四个阶段五大领域</p>
+<ul>
+<li>语音识别（语音交互等）</li>
+<li>环境感知（图像识别等）</li>
+<li>AI 技术（深度学习等）</li>
+<li>机器人自主控制</li>
+<li>群组协同</li>
+</ul>
+<p>AI 技术的目标是复制或超越计算机系统中需要人类智能的部分。</p>
+<h1 id="机器学习的学习方式"><a href="#机器学习的学习方式" class="headerlink" title="机器学习的学习方式"></a>机器学习的学习方式</h1><ul>
+<li>有监督学习<ul>
+<li>每个训练样本包括输入特征 x 和输出 y（标记）</li>
+<li>总结规律，预测答案</li>
+<li>具体技术：决策树，支持向量机，朴素贝叶斯，回归预测</li>
+</ul>
+</li>
+<li>无监督学习<ul>
+<li>训练样本只有 x 没有 y</li>
+<li>可以总结特征的一些规律，但是无法知道答案 y</li>
+<li>具体技术：聚类（k-means），关联规则（apriori）</li>
+</ul>
+</li>
+<li>半监督学习<ul>
+<li>先用无监督学习先做一些聚类，让模型总结相似</li>
+<li>再用少量的带标注的训练样本，告诉模型对应的答案</li>
+<li>模型最后把相似的样本对应到标记</li>
+</ul>
+</li>
+<li>强化学习<ul>
+<li>主要特点：试错学习，延迟反馈，时间是重要因素，当前的行为影响后续接收到的数据</li>
+<li>基本组成：Agent（智能体），Environment（环境），State（状态），Action（行动），Reward（奖励），Value（价值）</li>
+</ul>
+</li>
+</ul>
+<h1 id="机器学习模型"><a href="#机器学习模型" class="headerlink" title="机器学习模型"></a>机器学习模型</h1><ul>
+<li>聚类&#x2F;分类&#x2F;回归（基于 sklearn）</li>
+<li>决策树</li>
+<li>智能推荐算法</li>
+<li>关联规则</li>
+</ul>
+<h1 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h1><ol>
+<li>使用 sklearn 转换器处理数据</li>
+<li>构建并评价聚类模型</li>
+<li>构建并评价分类模型</li>
+<li>构建并评价回归模型</li>
+</ol>
+<h2 id="将数据集划分为训练集和测试集"><a href="#将数据集划分为训练集和测试集" class="headerlink" title="将数据集划分为训练集和测试集"></a>将数据集划分为训练集和测试集</h2><p>典型划分方式是训练集 50%，验证集和测试集各占 25%。</p>
+<ul>
+<li>当数据总量较少时，常用方法是留少部分做测试集，然后对其余样本采用 K 折交叉验证法。</li>
+<li>tran_test_split 函数</li>
+</ul>
+<h2 id="使用-sklearn-转换器进行数据预处理与降维"><a href="#使用-sklearn-转换器进行数据预处理与降维" class="headerlink" title="使用 sklearn 转换器进行数据预处理与降维"></a>使用 sklearn 转换器进行数据预处理与降维</h2><p>使用 sklearn 转换器能够实现对传入的 numpy 数组进行标准化处理、归一化处理、二值化处理、PCA 降维等操作，主要包括 3 个方法。</p>
+<ul>
+<li>fit</li>
+<li>transform</li>
+<li>fit_transform</li>
+</ul>
+<p>在数据分析过程中，各类特征处理相关的操作都需要对训练集和测试集分开操作，需要将训练集的操作规则权重系数等应用到测试集中。</p>
+<ul>
+<li>MinMaxScaler</li>
+<li>StandardScaler</li>
+<li>Normalizer</li>
+<li>Binarizer</li>
+<li>OneHotEncoder</li>
+<li>FunctionTransformer</li>
+</ul>
+<p>PCA 降维算法函数。</p>
+<ul>
+<li>n_componnets</li>
+<li>copy</li>
+<li>whiten</li>
+<li>svd_solver</li>
+</ul>
+<h2 id="使用-sklearn-估计器构建聚类模型"><a href="#使用-sklearn-估计器构建聚类模型" class="headerlink" title="使用 sklearn 估计器构建聚类模型"></a>使用 sklearn 估计器构建聚类模型</h2><p>算法类别：</p>
+<ul>
+<li>划分（分裂）方法：K-Means 算法（K-平均）、K-MEDOIDS 算法（K-中心点）、CLARANS 算法（基于选择的算法）</li>
+<li>层次分析算法：BIRCH 算法（平衡迭代规约和聚类）、CURE 算法（代表点聚类）、CHAMEleon 算法（动态模型）</li>
+<li>基于密度的方法：DBSCAN 算法（基于高密度连接区域）、DENCLUE 算法（密度分布函数）、OPTICS 算法（对象排序识别）</li>
+<li>基于网格的算法：STING 算法（统计信息网络）、CLIOUE 算法（聚类高维空间）、WAVE-CLUSTER 算法（小波变换）</li>
+</ul>
+<p>常用的聚类算法模块 cluster。</p>
+<h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><p>决策树是机器学习中一种基本的分类和回归算法，是依托于策略抉择而建立起来的树。</p>
+<h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><p>随机森林是通过机器学习的思想将多棵树集成的一种算法，它的基本单元是决策树，本质属于集成学习（Ensemble Learning）方法。</p>
+<h1 id="Xgboost-算法"><a href="#Xgboost-算法" class="headerlink" title="Xgboost 算法"></a>Xgboost 算法</h1><p>根据各个弱分类器之间有无依赖关系，分为：</p>
+<ul>
+<li>Boosting 流派，各分类器之间有依赖关系，必须串行，如 Adaboost、GBDT（Gradient Boosting Decision Tree）、Xgboost</li>
+<li>Bagging 流派，各分类器之间没有依赖关系，可各自并行，如随机森林（Random Forest）</li>
+</ul>
+<h1 id="智能推荐算法"><a href="#智能推荐算法" class="headerlink" title="智能推荐算法"></a>智能推荐算法</h1><p>具体主流模型</p>
+<ol>
+<li>协同过滤算法（Collaborate Filtering）<ol>
+<li>基于对用户历史行为数据的挖掘发现用户的喜好偏向，并预测用户可能喜好的 item（产品，服务）进行推荐</li>
+<li>主要实现：<ul>
+<li>根据有共同喜好的人进行推荐</li>
+<li>根据喜好的 item 推荐相似 item</li>
+<li>根据以上条件综合推荐</li>
+</ul>
+</li>
+<li>常用算法分为两种：<ul>
+<li>基于用户的协同过滤算法（userCF）</li>
+<li>基于物品的协同过滤算法（itemCF）</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>隐语义模型（Latent Factor Model）<ol>
+<li>对所有的 item（产品，文档）进行分类，再根据用户的兴趣分类给用户推荐该分类中的 item</li>
+<li>模型的主要工作：<ul>
+<li>给 item 分类</li>
+<li>确定用户兴趣（特征）属于哪些类及感兴趣程度</li>
+<li>对于用户感兴趣的类，具体推荐哪些 item 给用户</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>图<ol>
+<li>以 Personal Rank 为例，将用户行为数据用二分图表示，例如用户数据是由一系列的二元组组成，其中每个元组（u，i）表示用户 u 对物品 i 产生过行为</li>
+</ol>
+</li>
+</ol>
+<h1 id="关联规则"><a href="#关联规则" class="headerlink" title="关联规则"></a>关联规则</h1><p>是反映一个事物与其他事物之间的相互依存性和关联性。</p>
+<p>常用于实体电商或在线电商的推荐系统：通过对顾客的购买记录数据库进行关联规则挖掘，最终目的是发现顾客群体的购买习惯的内在共性。</p>
+<p>关键概念：</p>
+<ol>
+<li>支持度（Support）</li>
+</ol>
+<ul>
+<li>两件商品（X∩Y）在总销售笔数（N）中出现的概率</li>
+</ul>
+<ol start="2">
+<li>置信度（Confidence）</li>
+</ol>
+<ul>
+<li>购买 X 后再购买 Y 的条件概率</li>
+</ul>
+<ol start="3">
+<li>提升度（Lift）</li>
+</ol>
+<ul>
+<li>表示先购买 X 对购买 Y 的概率的提升作用，用来判断规则是否有实际价值</li>
+</ul>
+<h1 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h1><h2 id="金融反欺诈：检测，响应，预防"><a href="#金融反欺诈：检测，响应，预防" class="headerlink" title="金融反欺诈：检测，响应，预防"></a>金融反欺诈：检测，响应，预防</h2><p>应用实践：</p>
+<ol>
+<li>利用设备指纹技术对设备和身份进行初步识别</li>
+<li>基于非监督式的异常检测，将数据分解为正常趋势、随机扰动和异常情况三个部分</li>
+<li>在第 2 基础上实现画像，对设备、网络和用户三个层面的“千人千面”</li>
+<li>基于生成式概率模型的特征学习，形成了统一的多层特征模型</li>
+<li>将各个维度的特征统一成一种单位，归一化处理便于模型和人工对欺诈风险进行综合评估，规避传统静态规则的灵活性差的问题</li>
+<li>基于图模型学习的欺诈网络识别，利用高效的图聚类和社交网络算法，对欺诈网络进行动态地实时识别</li>
+</ol>
+<p>实例：账户盗用检测、支付欺诈监测、内容滥用监测、营销推广滥用监测。</p>
+<h2 id="文本分类分析"><a href="#文本分类分析" class="headerlink" title="文本分类分析"></a>文本分类分析</h2><p>把文档转为向量，按复杂性排序：</p>
+<ol>
+<li>加载文档，切词，NLP</li>
+<li>将切词结果转为词汇库（编号，出现频次）</li>
+<li>对切词结果进行清洗，转为精简词汇库（出现与否）</li>
+</ol>
+<h1 id="示例代码库"><a href="#示例代码库" class="headerlink" title="示例代码库"></a>示例代码库</h1><p><a target="_blank" rel="noopener" href="https://github.com/Ashestar/python_data_mining">https://github.com/Ashestar/python_data_mining</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%B9%E8%AE%AD/" rel="tag"><i class="fa fa-tag"></i> 培训</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/31/5e6dc36ee2ce/" rel="prev" title="绕过ParallelsDesktop试用期到期限制启动虚拟机">
+      <i class="fa fa-chevron-left"></i> 绕过ParallelsDesktop试用期到期限制启动虚拟机
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/05/c5b9edb51fcd/" rel="next" title="SpringBoot单元测试">
+      SpringBoot单元测试 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">机器学习的学习方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">机器学习模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86%E4%B8%BA%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86"><span class="nav-number">3.1.</span> <span class="nav-text">将数据集划分为训练集和测试集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-sklearn-%E8%BD%AC%E6%8D%A2%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E4%B8%8E%E9%99%8D%E7%BB%B4"><span class="nav-number">3.2.</span> <span class="nav-text">使用 sklearn 转换器进行数据预处理与降维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-sklearn-%E4%BC%B0%E8%AE%A1%E5%99%A8%E6%9E%84%E5%BB%BA%E8%81%9A%E7%B1%BB%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.3.</span> <span class="nav-text">使用 sklearn 估计器构建聚类模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">4.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="nav-number">4.1.</span> <span class="nav-text">随机森林</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Xgboost-%E7%AE%97%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">Xgboost 算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">智能推荐算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99"><span class="nav-number">7.</span> <span class="nav-text">关联规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%94%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">机器学习应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%91%E8%9E%8D%E5%8F%8D%E6%AC%BA%E8%AF%88%EF%BC%9A%E6%A3%80%E6%B5%8B%EF%BC%8C%E5%93%8D%E5%BA%94%EF%BC%8C%E9%A2%84%E9%98%B2"><span class="nav-number">8.1.</span> <span class="nav-text">金融反欺诈：检测，响应，预防</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%88%86%E6%9E%90"><span class="nav-number">8.2.</span> <span class="nav-text">文本分类分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%E5%BA%93"><span class="nav-number">9.</span> <span class="nav-text">示例代码库</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="谂独"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">谂独</p>
+  <div class="site-description" itemprop="description">Help me understand the best is yet to come <br/> Take me by the hand before I come undone</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ashestar" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ashestar" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:neonat@163.com" title="E-Mail → mailto:neonat@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1471724841&auto=0&height=32"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">谂独</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+  
+</body>
+</html>

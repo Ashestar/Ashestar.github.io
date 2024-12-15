@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico">
+  <link rel="mask-icon" href="/images/favicon-32.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ashestar.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2023 Vue 前端开发技术与实战培训">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript学习记录">
+<meta property="og:url" content="https://ashestar.github.io/2023/10/20/2d623184509f/index.html">
+<meta property="og:site_name" content="Gone With the Wind">
+<meta property="og:description" content="2023 Vue 前端开发技术与实战培训">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-20T01:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-14T16:26:15.231Z">
+<meta property="article:author" content="谂独">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ashestar.github.io/2023/10/20/2d623184509f/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>TypeScript学习记录 | Gone With the Wind</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Gone With the Wind</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">谂独的部落阁</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">29</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ashestar.github.io/2023/10/20/2d623184509f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="谂独">
+      <meta itemprop="description" content="Help me understand the best is yet to come <br/> Take me by the hand before I come undone">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gone With the Wind">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TypeScript学习记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-20 09:00:00" itemprop="dateCreated datePublished" datetime="2023-10-20T09:00:00+08:00">2023-10-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-15 00:26:15" itemprop="dateModified" datetime="2024-12-15T00:26:15+08:00">2024-12-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2023 Vue 前端开发技术与实战培训</p>
+<span id="more"></span>
+
+<h1 id="准备知识点"><a href="#准备知识点" class="headerlink" title="准备知识点"></a>准备知识点</h1><h2 id="true-or-false"><a href="#true-or-false" class="headerlink" title="true or false?"></a>true or false?</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &amp;&amp; <span class="number">4</span>) <span class="comment">// 4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> || <span class="number">4</span>) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>条件为 true 时返回最后一次的真实值。</p>
+<h2 id="ES6-的-OOP-要点"><a href="#ES6-的-OOP-要点" class="headerlink" title="ES6 的 OOP 要点"></a>ES6 的 OOP 要点</h2><ul>
+<li>没有公有、私有属性。</li>
+<li>有属于对象的和属于类的属性。常规的函数是属于类的，this 是属于对象的。</li>
+<li>ES6 是没有类型的，所以类函数也没有返回值。</li>
+<li>继承：子类构造函数内，需要先调用父类的构造函数。</li>
+</ul>
+<h2 id="ES6-部分特性"><a href="#ES6-部分特性" class="headerlink" title="ES6 部分特性"></a>ES6 部分特性</h2><ol>
+<li>字面量：</li>
+<li>字符串模版：反引号</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> n = <span class="string">&#x27;aaa&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`your result is <span class="subst">$&#123;<span class="number">3</span> || <span class="number">4</span>&#125;</span>, your name is <span class="subst">$&#123;n&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>解构：对数组或者 JSON 拆解，让代码更简洁</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> info = [<span class="string">&#x27;zhang&#x27;</span>, <span class="number">18</span>]</span><br><span class="line"><span class="comment">// let name = info[0]</span></span><br><span class="line"><span class="comment">// let age = info[1]</span></span><br><span class="line"><span class="keyword">let</span> [name, age] = info</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> info2 = &#123; <span class="attr">name</span>: <span class="string">&#x27;zhang&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;</span><br><span class="line"><span class="comment">// let name = info2.name</span></span><br><span class="line"><span class="keyword">let</span> &#123; name, age &#125; = info2</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>默认值</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">hello</span>(<span class="params">name = <span class="string">&#x27;es6 default&#x27;</span></span>) &#123;</span><br><span class="line">  <span class="comment">// let name = name || &#x27;traditional default&#x27;;</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`hello <span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>不定参数：形参</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, ...x</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x.<span class="title function_">reduce</span>(<span class="function">(<span class="params">accumulator, currentVal</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> accumulator + currentVal</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)) <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>拓展参数：实参</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params">name1, name2, name3</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`hello <span class="subst">$&#123;name1&#125;</span>, hello <span class="subst">$&#123;name2&#125;</span>, hello <span class="subst">$&#123;name3&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> names = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="string">&#x27;wangwu&#x27;</span>]</span><br><span class="line"><span class="title function_">sayHello</span>(...names)</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><p>Proxies</p>
+</li>
+<li><p>Promise</p>
+</li>
+</ol>
+<blockquote>
+<p>状态：</p>
+<p>成功：resolved；<br>失败：rejected；<br>进行中：pending；</p>
+<p>状态的转化：</p>
+<p>pending -&gt; resolved，使用 resolve()；<br>pending -&gt; rejected，使用 reject()；</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">cook</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`cook food started`</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`cook food finished`</span>)</span><br><span class="line">      <span class="title function_">resolve</span>(<span class="string">&#x27;cooked-food&#x27;</span>)</span><br><span class="line">      <span class="comment">// reject(&#x27;boom here&#x27;)</span></span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">eat</span>(<span class="params">food</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`start eating <span class="subst">$&#123;food&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`stop eating <span class="subst">$&#123;food&#125;</span>`</span>)</span><br><span class="line">      <span class="title function_">resolve</span>(<span class="string">&#x27;empty-dishes&#x27;</span>)</span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">wash</span>(<span class="params">dishes</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`start washing <span class="subst">$&#123;dishes&#125;</span>`</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`stop washing <span class="subst">$&#123;dishes&#125;</span>`</span>)</span><br><span class="line">      <span class="title function_">resolve</span>(<span class="string">&#x27;finished&#x27;</span>)</span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">cook</span>()</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="title function_">eat</span>(data))</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="title function_">wash</span>(data))</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`result: <span class="subst">$&#123;data&#125;</span>`</span>))</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`error: <span class="subst">$&#123;error&#125;</span>`</span>))</span><br></pre></td></tr></table></figure>
+
+<p><code>async</code>：加在 function 前可以自动返回 promise 对象；<br><code>await</code>：加在调用的 promise function 前可以阻塞异步请求，变为顺序执行；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">func1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;func1 return&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">func2</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// await func1().then((data) =&gt; console.log(data));</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;func2 return&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">func2</span>().<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data))</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title function_">func1</span>(), <span class="title function_">func2</span>()]).<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h2 id="特殊变量"><a href="#特殊变量" class="headerlink" title="特殊变量"></a>特殊变量</h2><ol>
+<li>观察变量</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">watch</span>: &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="function">(<span class="params">newVal</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`watch:<span class="subst">$&#123;newVal&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>实时计算变量</li>
+</ol>
+<ul>
+<li>不能在 data 里声明</li>
+<li>必须在 computed 里面声明</li>
+<li>需要在 view 里面使用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="router"><a href="#router" class="headerlink" title="router"></a>router</h2><ul>
+<li>定义好组件（用户页）</li>
+<li>把用户页和路由地址（Path）一一对应，这个对应的管理工作就是 router</li>
+<li>再把 router 配置到 vue 对象上，一起挂载到 DOM 对象</li>
+<li>view 需要有 router-view 及 router-link</li>
+</ul>
+<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><ul>
+<li>声明全局状态</li>
+<li>读：<ul>
+<li>getter</li>
+<li>mapper 映射+Computed</li>
+</ul>
+</li>
+<li>写：<ul>
+<li>dispatch(action)，组件上使用</li>
+<li>action(commit) -&gt; 允许异步</li>
+<li>mutation -&gt; 同步，修改状态</li>
+</ul>
+</li>
+</ul>
+<h2 id="vue-组件生命周期"><a href="#vue-组件生命周期" class="headerlink" title="vue 组件生命周期"></a>vue 组件生命周期</h2><ul>
+<li>初始化阶段：beforeCreate、created、beforeMount、mounted</li>
+<li>运行中：beforeUpdate、updated</li>
+<li>销毁阶段：beforeDestroy、destroyed</li>
+</ul>
+<h2 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h2><ol>
+<li>响应式数据声明</li>
+</ol>
+<ul>
+<li>ref，声明基础数据类型</li>
+<li>reactive，声明复杂数据类型</li>
+</ul>
+<ol start="2">
+<li>setup</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+              <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/06/24/45dc8f6f1fa3/" rel="prev" title="macOS平铺式桌面尝鲜">
+      <i class="fa fa-chevron-left"></i> macOS平铺式桌面尝鲜
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/06/14/e51da90de844/" rel="next" title="2024网络安全培训">
+      2024网络安全培训 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">准备知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#true-or-false"><span class="nav-number">1.1.</span> <span class="nav-text">true or false?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-%E7%9A%84-OOP-%E8%A6%81%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">ES6 的 OOP 要点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-%E9%83%A8%E5%88%86%E7%89%B9%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">ES6 部分特性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">2.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">特殊变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#router"><span class="nav-number">2.2.</span> <span class="nav-text">router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vuex"><span class="nav-number">2.3.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">2.4.</span> <span class="nav-text">vue 组件生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue3"><span class="nav-number">2.5.</span> <span class="nav-text">vue3</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="谂独"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">谂独</p>
+  <div class="site-description" itemprop="description">Help me understand the best is yet to come <br/> Take me by the hand before I come undone</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ashestar" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ashestar" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:neonat@163.com" title="E-Mail → mailto:neonat@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1471724841&auto=0&height=32"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">谂独</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+  
+</body>
+</html>

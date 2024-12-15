@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico">
+  <link rel="mask-icon" href="/images/favicon-32.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ashestar.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="我的 ManjaroToGo 在一次更新后 grub 可能是坏了，找不到启动盘，使用镜像 chroot 尝试修复了好几次都不行，重装切换成 archlinux 算了，再一想，没尝试过平铺式桌面，而且现在的 wayland 也似乎能用了，所以直接装 archlinux+sway。 没错，我天天折腾没用的东西。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux使用Sway桌面">
+<meta property="og:url" content="https://ashestar.github.io/2023/06/18/8b6757f89cb9/index.html">
+<meta property="og:site_name" content="Gone With the Wind">
+<meta property="og:description" content="我的 ManjaroToGo 在一次更新后 grub 可能是坏了，找不到启动盘，使用镜像 chroot 尝试修复了好几次都不行，重装切换成 archlinux 算了，再一想，没尝试过平铺式桌面，而且现在的 wayland 也似乎能用了，所以直接装 archlinux+sway。 没错，我天天折腾没用的东西。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-18T13:57:36.000Z">
+<meta property="article:modified_time" content="2023-06-23T11:13:44.786Z">
+<meta property="article:author" content="谂独">
+<meta property="article:tag" content="配置">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ashestar.github.io/2023/06/18/8b6757f89cb9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>ArchLinux使用Sway桌面 | Gone With the Wind</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Gone With the Wind</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">谂独的部落阁</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">29</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ashestar.github.io/2023/06/18/8b6757f89cb9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="谂独">
+      <meta itemprop="description" content="Help me understand the best is yet to come <br/> Take me by the hand before I come undone">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gone With the Wind">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ArchLinux使用Sway桌面
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-18 21:57:36" itemprop="dateCreated datePublished" datetime="2023-06-18T21:57:36+08:00">2023-06-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-23 19:13:44" itemprop="dateModified" datetime="2023-06-23T19:13:44+08:00">2023-06-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>我的 ManjaroToGo 在一次更新后 grub 可能是坏了，找不到启动盘，使用镜像 chroot 尝试修复了好几次都不行，重装切换成 archlinux 算了，再一想，没尝试过平铺式桌面，而且现在的 wayland 也似乎能用了，所以直接装 archlinux+sway。</p>
+<p>没错，我天天折腾没用的东西。</p>
+<span id="more"></span>
+
+<h1 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h1><p>没什么好说的，网上教程很多，照着教程一步步配置就好，但是我想装的是 linuxToGo，所以 grub 引导写入的命令要加上 <code>--removable</code> 选项，我也是装了好几次最后都不能在 U 盘启动才知道这个问题。</p>
+<h1 id="安装-SwayWM"><a href="#安装-SwayWM" class="headerlink" title="安装 SwayWM"></a>安装 SwayWM</h1><p>安装 sway 桌面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wlroots sway</span><br></pre></td></tr></table></figure>
+
+<p>配置文件设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /etc/sway/config ~/.config/sway/</span><br><span class="line"></span><br><span class="line">vim ~/.config/sway/config</span><br></pre></td></tr></table></figure>
+
+<p>使用 vulkan 做渲染后端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.pam_environment</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">WLR_RENDERER=vulkan</span><br></pre></td></tr></table></figure>
+
+<p>登录 tty1 自动进入 sway</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">[[ -f ~/.bashrc ]] &amp;&amp; . ~/.bashrc</span><br><span class="line">[ <span class="string">&quot;<span class="subst">$(tty)</span>&quot;</span> = <span class="string">&quot;/dev/tty1&quot;</span> ] &amp;&amp; <span class="built_in">exec</span> sway</span><br></pre></td></tr></table></figure>
+
+<p>wofi 启动器和 alacritty 终端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wofi alacritty</span><br></pre></td></tr></table></figure>
+
+<p>waybar 状态栏</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S waybar otf-font-awesome</span><br><span class="line"></span><br><span class="line">vim ~/.config/sway/config</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#bar &#123;</span></span><br><span class="line"><span class="comment">#    position top</span></span><br><span class="line"><span class="comment">#    swaybar_command waybar</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="fcitx5-输入法"><a href="#fcitx5-输入法" class="headerlink" title="fcitx5 输入法"></a>fcitx5 输入法</h1><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx5 fcitx5-chinese-addons fcitx5-pinyin-moegirl</span><br></pre></td></tr></table></figure>
+
+<p>配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.config/sway/config</span><br><span class="line"><span class="comment">### Auto start</span></span><br><span class="line"><span class="built_in">exec</span> --no-startup-id fcitx5 -d</span><br><span class="line"></span><br><span class="line">vim ~/.pam_environment</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">GTK_IM_MODULE DEFAULT=fcitx</span><br><span class="line">QT_IM_MODULE  DEFAULT=fcitx</span><br><span class="line">XMODIFIERS    DEFAULT=@im=fcitx</span><br><span class="line">INPUT_METHOD  DEFAULT=fcitx</span><br><span class="line">SDL_IM_MODULE DEFAULT=fcitx</span><br></pre></td></tr></table></figure>
+
+<p>wps 的中文输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/bin/wps</span><br><span class="line"><span class="comment"># 添加如下两行</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">&quot;@im=fcitx&quot;</span></span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=<span class="string">&quot;fcitx&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><strong>特别感谢各位大佬的分享记录</strong>，让我能尝试这些新技术新玩意。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/CelestialCosmic/themeblog/issues/22">Archlinux+Sway+Windows11 完全配置记录</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.gnu.org/software/grub/manual/grub/html_node/Installing-GRUB-using-grub_002dinstall.html#:~:text=For%20removable%20installs%20you%20have%20to%20use%20--removable,and%20--efi-directory%20%3A%20%23%20grub-install%20--efi-directory%3D%2Fmnt%2Fusb%20--boot-directory%3D%2Fmnt%2Fusb%2Fboot%20--removable">4.1 Installing GRUB using grub-install</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/462322143">探索 linux 桌面全面 wayland 化（基于 swaywm）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/HideOnLie/article/details/107615277">ArchLinux 安装 fcitx5 以及拼音输入法</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wishchin/article/details/89674250">Linux：WPS 不能使用中文输入法</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag"><i class="fa fa-tag"></i> 配置</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/08/52871b1c7283/" rel="prev" title="PowerBI数据分析最佳实践">
+      <i class="fa fa-chevron-left"></i> PowerBI数据分析最佳实践
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/06/24/45dc8f6f1fa3/" rel="next" title="macOS平铺式桌面尝鲜">
+      macOS平铺式桌面尝鲜 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">安装系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-SwayWM"><span class="nav-number">2.</span> <span class="nav-text">安装 SwayWM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fcitx5-%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">fcitx5 输入法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="谂独"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">谂独</p>
+  <div class="site-description" itemprop="description">Help me understand the best is yet to come <br/> Take me by the hand before I come undone</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ashestar" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ashestar" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:neonat@163.com" title="E-Mail → mailto:neonat@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1471724841&auto=0&height=32"></iframe>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">谂独</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+  
+</body>
+</html>
