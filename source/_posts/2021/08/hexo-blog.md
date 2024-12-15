@@ -114,6 +114,25 @@ github: https://github.com/hexojs/hexo
      archives: /archives/ || fa fa-archive
    ```
 
+# 文章url设置
+
+hexo文章的url在博客根目录的 `_config.yml` 文件中进行配置，默认配置如下：
+
+```yml
+# 年/月/日/文章路径
+permalink: :year/:month/:day/:title/
+```
+
+这里的 `:title` 为 `source/_post` 下的相对路径，但是这样的话很容易造成url中文乱码，和不同浏览器因为字符集的问题导致的url失效。
+
+可以改为使用hash值生成文章url，会自动生成hash值，保证不重复且不会因为编码出错。
+
+```yml
+permalink: :year/:month/:day/:hash/
+```
+
+其他tag可见官方文档：[永久链接（Permalinks）](https://hexo.io/zh-cn/docs/permalinks)。
+
 # 插入图片
 
 1. 绝对引用
@@ -129,6 +148,8 @@ github: https://github.com/hexojs/hexo
 
 # 参考
 
-- [使用 Hexo+GitHub 搭建个人免费博客教程（小白向）](https://zhuanlan.zhihu.com/p/60578464#:~:text=%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%EF%BC%88%E5%B0%8F%E7%99%BD%E5%90%91%EF%BC%89%201%20%E5%87%86%E5%A4%87%202%20%E8%BF%9E%E6%8E%A5%20Github....,Hexo%20%E5%88%B0%20GitHub%20Pages%206%20%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89....%207%20%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8)
+- [Hexo 官方文档](https://hexo.io/zh-cn/docs/)
+- [使用 Hexo+GitHub 搭建个人免费博客教程（小白向）](https://zhuanlan.zhihu.com/p/60578464)
 - [Hexo 新建标签、分类、归档等页面](https://blog.csdn.net/weixin_41287260/article/details/97758641)
 - [Hexo 博客插入图片的方法](https://www.cnblogs.com/hugochen1024/p/12570656.html)
+- [hexo文章url设置](https://blog.csdn.net/qq_41942221/article/details/116007091)
