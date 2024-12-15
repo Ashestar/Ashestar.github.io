@@ -125,6 +125,10 @@ sudo yabai --load-sa
 
 平铺式桌面现在感觉用得很不错，但是快捷键设置不习惯，而且抄的博主的快捷键似乎有部份按了没反应，后续再看看怎么回事。
 
+# 更新20241215
+
+目前已卸载yabai，使用AreoSpace，安装不需要关闭SIP保护。
+
 # 参考文章
 
 - [macbook air m1 芯片关闭 sip 教程（超详细，防踩坑）](https://blog.csdn.net/weixin_44791976/article/details/110826057)
