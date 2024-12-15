@@ -1,6 +1,6 @@
 ---
 title: Ollama
-date: 2024-10-25 09:00:00
+date: 2024-12-14 09:00:00
 tags:
   - Ollama
   - AI

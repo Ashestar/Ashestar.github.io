@@ -1,28 +1,33 @@
 ---
-title: ComfyUI和flux
-date: 2024-10-25 09:00:00
+title: ComfyUI和Flux
+date: 2024-12-15 09:00:00
 tags:
   - ComfyUI
-  - flux
+  - Flux
   - AI
 categories:
   - ComfyUI
-  - flux
+  - Flux
   - AI
 ---
 
-使用 [ComfyUI](https://github.com/comfyanonymous/ComfyUI) 部署 [Flux Dev](https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main) 模型。
+使用 [ComfyUI](https://github.com/comfyanonymous/ComfyUI) 部署 [Flux Dev 模型](https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main)。
 
 <!--more-->
 
 # ComfyUI
 
-首先确保本机已经安装好了基于arm架构的Python3.11，之所以使用Python3.11，是因为这个版本性能有一定的优化，又不会像最新的3.13由于版本过新，引发依赖装不上的问题。
+首先确保本机已经安装好了基于arm架构的Python3.11。
+
+根据参考文章，之所以使用Python3.11，是因为这个版本性能有一定的优化，又不会像最新的3.13由于版本过新，引发依赖装不上的问题。
 
 1. 安装python3.11，推荐使用Anaconda管理环境
 
 ```bash
-
+# 下载指定版本
+conda create --name python311 python=3.11
+# 启用该环境
+conda activate python311 
 ```
 
 2. 部署ComfyUI
@@ -57,7 +62,7 @@ python main.py --force-fp16
 5. 下载 [基于GGUF的工作流](https://promptingpixels.com/flux-gguf/) 并导入ComfyUI中
 6. 安装 [ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF) 插件，可以参考 [ComfyUI 插件安装教程](https://comfyui-wiki.com/zh/install/install-custom-nodes) 安装缺失的节点
 
-# have some fun
+# Have Some Fun
 
 我测试过的模型版本是参考文章里面的 flux1-dev-Q4_1.gguf 和 t5-v1_1-xxl-encoder-Q5_K_M.gguf 。
 
